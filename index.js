@@ -18,14 +18,15 @@ function UpdateSquares(event) {
 
 function ReverseSquares() {
     array_sqr.reverse();
-
-    for (const id of array_sqr) {
+    // Use for..of loop to apply different timeouts for each button
+    for (const [index, id] of array_sqr.entries()) {
         const reverse_btn = document.getElementById(id);
 
-        // Remove the color 
-        reverse_btn.style.backgroundColor = 'white';
+        // Remove the color after a delay, with increasing delay for each button
+        setTimeout(() => {
+            reverse_btn.style.backgroundColor = 'white';
+        }, index * 1000);
 
         /* Also clear the array */
         array_sqr = [];
     }
-}
